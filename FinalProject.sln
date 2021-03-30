@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{75D39A97-83D3-4632-8527-12F13FCE4BC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{AF862372-EAAC-417B-B41E-D16A0279AF5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{AF862372-EAAC-417B-B41E-D16A0279AF5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{39D10E9E-E256-40EC-8C74-BE8F5D74D379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{39D10E9E-E256-40EC-8C74-BE8F5D74D379}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{29C71BC0-5A07-4F2A-91D4-2CE62573DCB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{29C71BC0-5A07-4F2A-91D4-2CE62573DCB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{20A98EA8-45A5-450E-99B5-E2CE1B673885}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{29C71BC0-5A07-4F2A-91D4-2CE62573DCB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29C71BC0-5A07-4F2A-91D4-2CE62573DCB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29C71BC0-5A07-4F2A-91D4-2CE62573DCB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A98EA8-45A5-450E-99B5-E2CE1B673885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A98EA8-45A5-450E-99B5-E2CE1B673885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A98EA8-45A5-450E-99B5-E2CE1B673885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A98EA8-45A5-450E-99B5-E2CE1B673885}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

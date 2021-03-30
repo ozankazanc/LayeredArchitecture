@@ -1,10 +1,10 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {
     //Generic Constraint-IEntityRepository<T> T'ye ne olabileceği belirtme işlemi
     //class : referans tip - (class olabilir demek değildir, referans tipi classtır demek)

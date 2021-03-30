@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
+    <Folder Include="DataAccess\DapperORM\" />
+    <Folder Include="DataAccess\InMemory\" />
   </ItemGroup>
 
 </Project>
