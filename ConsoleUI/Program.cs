@@ -10,13 +10,23 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //ProductTest();
+            //CategoryTest();
+            ProductManager productManager = new ProductManager(new EFProductDal());
+           
+            foreach (var productDetails in productManager.GetAllProductDetail())
+            {
+                Console.WriteLine($"{productDetails.ProductId} - {productDetails.ProductName} - {productDetails.UnitsInStock} - {productDetails.CategoryName}");
+            }
+        }
+
+        private static void CategoryTest()
+        {
             CategoryManager categoryManager = new CategoryManager(new EFCategoryDal());
 
             foreach (var category in categoryManager.GetAll())
             {
                 Console.WriteLine($"{category.CategoryId} - {category.CategoryName}");
             }
-
         }
 
         private static void ProductTest()
