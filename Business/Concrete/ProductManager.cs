@@ -16,6 +16,12 @@ namespace Business.Concrete
         {
             _productManager = productDal;
         }
+
+        public void Add(Product product)
+        {
+            _productManager.Add(product);
+        }
+
         public List<Product> GetAll()
         {
             //buraya şartları yazıyoruz.
@@ -31,6 +37,11 @@ namespace Business.Concrete
         public List<ProductDetailDto> GetAllProductDetail()
         {
             return _productManager.GetProductDetails();
+        }
+
+        public Product GetById(int productId)
+        {
+            return _productManager.Get(x => x.ProductId == productId);
         }
 
         public List<Product> GetbyUnitPrice(decimal min, decimal max)
