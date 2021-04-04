@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -17,36 +19,47 @@ namespace Business.Concrete
             _productManager = productDal;
         }
 
-        public void Add(Product product)
+        public IResult Add(Product product)
         {
+            
+           if(product.ProductName.Length<2)
+            {
+                //magic strings // aslında bu şekilde direk string göndermek iyi değildir.
+                return new ErrorResult(message: Messages.ProductNameInValid);
+            }
+            
             _productManager.Add(product);
+            return new SuccessResult(message: Messages.ProductAdded);
         }
 
-        public List<Product> GetAll()
+        public IDataResult<List<Product>> GetAll()
         {
-            //buraya şartları yazıyoruz.
-            //sonrasında getall dönüyoruz aslında.
-            return _productManager.GetAll();
+            if(DateTime.Now.Hour==22)
+            {
+                return new ErrorDataResult<List<Product>>(Messages.ProductsListedOutHours);
+            }
+           
+            return new SuccessDataResult<List<Product>>(_productManager.GetAll(), Messages.ProductsListed);
         }
 
-        public List<Product> GetAllByCategoryId(int id)
+        public IDataResult<List<Product>> GetAllByCategoryId(int id)
         {
-            return _productManager.GetAll(x => x.CategoryId == id);
+            return new SuccessDataResult<List<Product>>(_productManager.GetAll(x => x.CategoryId == id), Messages.ProductsListed);
         }
 
-        public List<ProductDetailDto> GetAllProductDetail()
+        public IDataResult<List<ProductDetailDto>> GetAllProductDetail()
         {
-            return _productManager.GetProductDetails();
+            return new SuccessDataResult<List<ProductDetailDto>>(_productManager.GetProductDetails(), Messages.ProductsListed);
         }
 
-        public Product GetById(int productId)
+        public IDataResult<Product> GetById(int productId)
         {
-            return _productManager.Get(x => x.ProductId == productId);
+            return new SuccessDataResult<Product>(_productManager.Get(x => x.ProductId == productId), Messages.ProductsListed);
         }
 
-        public List<Product> GetbyUnitPrice(decimal min, decimal max)
+        public IDataResult<List<Product>> GetbyUnitPrice(decimal min, decimal max)
         {
-            return _productManager.GetAll(x=>x.UnitPrice<=max && x.UnitPrice>=  min);
+            return new SuccessDataResult<List<Product>>(_productManager.GetAll(x => x.UnitPrice <= max && x.UnitPrice >= min), Messages.ProductsListed);
         }
     }
 }

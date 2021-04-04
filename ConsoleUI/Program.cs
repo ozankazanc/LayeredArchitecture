@@ -12,10 +12,16 @@ namespace ConsoleUI
             //ProductTest();
             //CategoryTest();
             ProductManager productManager = new ProductManager(new EFProductDal());
-           
-            foreach (var productDetails in productManager.GetAllProductDetail())
+
+            var result = productManager.GetAllProductDetail();
+            if (result.Success)
             {
-                Console.WriteLine($"{productDetails.ProductId} - {productDetails.ProductName} - {productDetails.UnitsInStock} - {productDetails.CategoryName}");
+                Console.WriteLine(result.Message);
+                Console.WriteLine();
+                foreach (var productDetails in productManager.GetAllProductDetail().Data)
+                {
+                    Console.WriteLine($"{productDetails.ProductId} - {productDetails.ProductName} - {productDetails.UnitsInStock} - {productDetails.CategoryName}");
+                }
             }
         }
 
@@ -33,12 +39,12 @@ namespace ConsoleUI
         {
             ProductManager productManager = new ProductManager(new EFProductDal());
 
-            foreach (var product in productManager.GetAll())
+            foreach (var product in productManager.GetAll().Data)
             {
                 Console.WriteLine(product.ProductName);
             }
 
-            foreach (var product in productManager.GetbyUnitPrice(20, 100))
+            foreach (var product in productManager.GetbyUnitPrice(20, 100).Data)
             {
                 Console.WriteLine(product.ProductName);
             }
