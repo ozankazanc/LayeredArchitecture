@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
         }
         
         [HttpGet]
-        public List<Product> Get()
+        public IActionResult Get()
         {
             //Dependency Chain // Bağımlılık zinciri
             //IProductService productservice = new ProductManager(new EFProductDal());
@@ -34,9 +34,11 @@ namespace WebAPI.Controllers
             
             if(result.Success)
             {
-                return result.Data;
+                //Ok sistem başarılı demek.
+                return Ok(result);
+                //result altında bulunan data, success,message bilgiside json'da döner.
             }
-            return null;
+            return BadRequest(result);
         }
     }
 }
