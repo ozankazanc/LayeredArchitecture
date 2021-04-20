@@ -19,6 +19,11 @@ namespace Business.Concrete
             _productManager = productDal;
         }
 
+        //[LogAspect]-->AOP
+        //[Validate]
+        //[RemoveCache]
+        //[Transaction]
+        //[Performance]
         public IResult Add(Product product)
         {
             
@@ -34,7 +39,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAll()
         {
-            if(DateTime.Now.Hour==23)
+            if(DateTime.Now.Hour==20)
             {
                 return new ErrorDataResult<List<Product>>(Messages.ProductsListedOutHours);
             }

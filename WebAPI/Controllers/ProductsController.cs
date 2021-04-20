@@ -23,8 +23,9 @@ namespace WebAPI.Controllers
         {
             _productService = productService;
         }
-        
-        [HttpGet]
+
+        //https://localhost:44358/api/Products/getall
+        [HttpGet("getall")]
         public IActionResult Get()
         {
             //Dependency Chain // Bağımlılık zinciri
@@ -37,6 +38,29 @@ namespace WebAPI.Controllers
                 //Ok sistem başarılı demek.
                 return Ok(result);
                 //result altında bulunan data, success,message bilgiside json'da döner.
+            }
+            return BadRequest(result);
+        }
+
+        //https://localhost:44358/api/Products/getbyid?ProductId=2
+        [HttpGet("getbyid")]
+        public IActionResult Get(int ProductId)
+        {
+            var result = _productService.GetById(ProductId);
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        
+        [HttpPost("add")]
+        public IActionResult Post(Product product)
+        {
+            var result = _productService.Add(product);
+            if(result.Success)
+            {
+                return Ok(result);
             }
             return BadRequest(result);
         }
