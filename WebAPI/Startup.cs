@@ -39,10 +39,11 @@ namespace WebAPI
             //Eðer bir baðýmlýlýk görürsen karþýlýðý budur.
             //Arkaplanda bizim için ProductManager'ý new liyor.
             //Singleton'ý, içerisinde data tutmuyorsak kullanýyoruz. Sepet gibi bir yapýda kullanmýyoruz mesela.
-            services.AddSingleton<IProductService,ProductManager>();
-            //Product Manager'da IProductdal'a baðýmlý.
-            services.AddSingleton<IProductDal, EFProductDal>();
-
+            
+            //----Autofac ile yoruma alýndý, buraya gerek kalmadý.----
+            //services.AddSingleton<IProductService,ProductManager>();
+            //services.AddSingleton<IProductDal, EFProductDal>();
+            //--------------------------------------------------------
 
         }
 
